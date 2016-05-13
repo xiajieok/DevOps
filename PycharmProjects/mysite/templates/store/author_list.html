@@ -1,0 +1,52 @@
+{% extends 'store/basic.html' %}
+{% block content %}
+    <div>
+        <input class="button" id="btnshow" type="button" value="Add" onclick="showdiv();"/>
+        <div id="bg">
+{#            这里是编辑信息#}
+        </div>
+        <div id="show" style="height: auto">
+
+            <div id="divHide" >
+                <form class="form" action="/store/author_edit/" method="post">
+                    <div >
+                        First Name<input  type="text" name="first_name" value="" required="length[6~50]"/>
+                    </div>
+                    <div>
+                        Last Name<input  type="text" name="last_name" value="" required="length[6~50]"/>
+                    </div>
+
+                    <input type="submit" value="提交" onclick="FuncAdd(this);"/>
+                    <input id="btnclose" type="button" value="取消" onclick="hidediv();"/>
+                </form>
+            </div>
+
+        </div>
+        <input class="button" id="checkbox1" type="button" value="全选" onclick="SelectAll(this);"/>
+        <input class="button" id="checkbox2" type="button" value="反选" onclick="OtherBind(this)"/>
+        <input class="button" id="checkbox3" type="button" value="取消" onclick="NoBind(this)"/>
+    </div>
+    <form action="/store/author_del/" method="post">
+         <table class="table"  >
+            <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>first_name</th>
+                        <th>last_name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in li %}
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.first_name }}</td>
+                            <td>{{ item.last_name }}</td>
+                            <td><input name="choice" type="checkbox"  value='{{ item.id }}'/></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+         </table>
+        <input type="submit" value="del"/>
+    </form>
+
+{% endblock %}
