@@ -1,9 +1,10 @@
 from django.conf.urls import url
 from store import views
 urlpatterns = [
-    url(r'^$', views.login),
+    url(r'^$', views.home),
     # url(r'^db_handle/$',views.db_handle),
-    url(r'^check/', views.check),
+    url(r'^login/', views.login),
+    url(r'^logout/', views.log_out),
     url(r'^reg/', views.reg),
     url(r'^home/', views.home),
     url(r'^books/', views.books),

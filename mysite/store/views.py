@@ -1,41 +1,63 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.shortcuts import HttpResponse,HttpResponseRedirect
 from store import  models
+import hashlib
+from django.contrib.auth import logout
+from django import forms
 # Create your views here.
+class UserForm(forms.Form):
+    username = forms.CharField()
+
+def md5Encode(str):
+    m = hashlib.md5(str.encode(encoding='utf-8'))
+    return m.hexdigest()
 def reg(request):
     if request.method == "POST":
-        print(request.POST)
+        #print(request.POST)
         i_username = request.POST.get('username')
         i_passwd = request.POST.get('passwd')
         tmp_dic = models.UserInfo.objects.filter(username=i_username)
         models.UserInfo.objects.create(username=i_username,
-                                        password=i_passwd)
+                                        password=md5Encode(i_passwd))
         return HttpResponseRedirect('/store/home/')
 
     else:
         return render(request, 'store/registry.html')
+
+
 def login(request):
-    user_list_obj = models.UserInfo.objects.all()
-    return render(request, 'store/login.html', {'li': user_list_obj})
-def check(request):
-    i_username = request.POST.get('username')
-    i_passwd = request.POST.get('password')
-    #查询用户名和密码,然后对比
-    user_list_obj = models.UserInfo.objects.filter(username=i_username)
-    for line in user_list_obj:
-        # print(line.username,line.password)
-        if line.password == i_passwd:
-            return HttpResponseRedirect('/store/home/')
-        else:
-            print('wrong!')
-            return render(request, 'store/login.html', {'li': user_list_obj})
+    if request.method == 'POST':
+        i_username = request.POST.get('username')
+        i_passwd = md5Encode(request.POST.get('password'))
+
+        #查询用户名和密码,然后对比
+        user_list_obj = models.UserInfo.objects.filter(username=i_username)
+        for line in user_list_obj:
+            print(line.username,line.password)
+            if line.password == i_passwd:
+                request.session['username'] = i_username
+                print('%s is login...' %(i_username))
+                return HttpResponseRedirect('/store/home/')
+            else:
+                print('wrong!')
+                return render(request, 'store/login.html')
+    return render(request,'store/login.html')
+def log_out(request):
+    try:
+        del request.session['member_id']
+    except KeyError:
+        pass
+    return render(request,'store/login.html')
 
 def home(request):
-    # return HttpResponse('this is index')
-    if request.method == 'POST':
-        print(request.POST)
+
+    is_login = request.session.get('username',False)
+    if is_login:
+        username = request.session.get('username',False)
+        print(username)
+        return render(request, 'store/basic.html',{'username':username})
     else:
-        return render(request,'store/start.html')
+        return HttpResponseRedirect('/store/login/')
 def books(request):
     books = models.Book.objects.all()
     publisher_list = models.Publisher.objects.all()
