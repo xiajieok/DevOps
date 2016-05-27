@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^reg/', views.reg),
     url(r'^home/', views.home),
     url(r'^books/', views.books),
+    url(r'^book_form/', views.book_form),
+    url(r'^book_modelform/', views.book_modelform),
     url(r'^book_edit/', views.book_edit),
     url(r'^book_del/', views.book_del),
     url(r'^authors/', views.authors),
@@ -16,6 +18,7 @@ urlpatterns = [
     url(r'^publisher_del/', views.publisher_del),
     url(r'^author_edit/', views.author_edit),
     url(r'^author_del/', views.author_del),
+
 
 
 ]

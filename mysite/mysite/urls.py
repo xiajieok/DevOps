@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from crm import views
 
 
 #匹配原则,循环匹配,直到匹配的第一个
@@ -24,22 +25,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^cmdb/', include("IDC.urls")),
     #全局给该url传参数
-    url(r'^moniter/', include("moniter.urls")),
+    # url(r'^moniter/', include("moniter.urls")),
     url(r'^store/', include("store.urls")),
-
-
-
-
-    #全局
-
-    # url(r'^articles/2013/$', views.year),
-    # #精确匹配
-    # url(r'^articles/([0-9]{4})/$', views.years),
-    # #模糊匹配年月
-    # url(r'^articles/([0-9]{4})/([0-9]{2})/$', views.months),
-    # #模糊匹配文章id
-    # url(r'^articles/([0-9]{4})/([0-9]{2})/([0-9]+)/$', views.id),
-    # #模糊匹配文件类型
-    # url(r'^articles/([0-9]{4})/([0-9]{2})/([0-9]+).(\w+)/$', views.type),
+    url(r'^crm/', include("crm.urls")),
+    # url(r'^accounts/login/$', views.acc_login),
+    # url(r'^accounts/logout/$', views.acc_logout),
 
 ]

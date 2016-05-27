@@ -1,44 +1,29 @@
 {% extends 'store/basic.html' %}
 {% block content %}
-{#    <div>#}
-{##}
-{#        <div id="bg">#}
-{#            这里是编辑信息#}
-{#        </div>#}
-{#        <div id="show" style="height: auto">#}
-{##}
-{#            <div id="divHide" >#}
-{#                <form class="form" action="/store/author_edit/" method="post">#}
-{#                    <div >#}
-{#                        First Name<input  type="text" name="first_name" value="" required="length[6~50]"/>#}
-{#                    </div>#}
-{#                    <div>#}
-{#                        Last Name<input  type="text" name="last_name" value="" required="length[6~50]"/>#}
-{#                    </div>#}
-{##}
-{#                    <input type="submit" value="提交" onclick="FuncAdd(this);"/>#}
-{#                    <input id="btnclose" type="button" value="取消" onclick="hidediv();"/>#}
-{#                </form>#}
-{#            </div>#}
-{##}
-{#        </div>#}
-{##}
-{#    </div>#}
-
-    <form action="/store/author_del/" method="post">
-{#        <input class="button" id="btnshow" type="button" value="Add" onclick="showdiv();"/>#}
-        <input class="button" id="add1" type="button" value="Add" onclick="AddRow();"/>
+    <form action="/store/author_del/" method="post" xmlns="http://www.w3.org/1999/html">
         <input class="button" id="checkbox1" type="button" value="全选" onclick="SelectAll(this);"/>
         <input class="button" id="checkbox2" type="button" value="反选" onclick="OtherBind(this)"/>
         <input class="button" id="checkbox3" type="button" value="取消" onclick="NoBind(this)"/>
-        <input class="button" id="checkbox4" type="button" value="Save"/>
-        <input type="submit" value="del"/>
+        <button class="button" id="checkbox4" type="button" value="Save" onclick="Save()">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
+        <button class="button" aria-hidden="true" id="add" type="button" value="Add" onclick="AddRow();">
+             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </button>
+        <button class="button" type="submit" value="del">
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+        </button>
         <table class="table" id="tb1">
             <thead>
                     <tr>
+
+
                         <th>ID</th>
                         <th>first_name</th>
                         <th>last_name</th>
+                        <th>
+                            <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,10 +41,15 @@
     </form>
     <script>
         function AddRow(){
-{#            var len = $('#tb1 tr').length ;#}
-{#            console.log(len);#}
             var newRow = "<tbody><tr><td></td><td><input type='text'></td><td><input type='text'</td><td><input type='checkbox'/> </td></tr></tbody>')";
             $("#tb1").append(newRow);
+        }
+        function Save(){
+            $.post(
+                    '/store/author_edit',{
+                        first_name:$
+                    }
+            )
         }
      　　
     </script>

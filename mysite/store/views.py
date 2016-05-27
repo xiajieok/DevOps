@@ -3,10 +3,41 @@ from django.shortcuts import HttpResponse,HttpResponseRedirect
 from store import  models
 import hashlib
 from django.contrib.auth import logout
-from django import forms
+#from django import forms
+from store import forms
 # Create your views here.
-class UserForm(forms.Form):
-    username = forms.CharField()
+
+def book_form(request):
+    form = forms.BookForm()
+    if request.method == 'POST':
+        print(request.POST)
+        form = forms.BookForm(request.POST)
+        if form.is_valid():
+            print('form is ok')
+            print(form.cleaned_data)
+            form_data = form.cleaned_data
+            form_data['publisher_id'] = request.POST.get('publisher_id')
+            book_obj = models.Book(**form_data)
+            book_obj.save()
+        else:
+            print(form.errors)
+    publisher_list = models.Publisher.objects.all()
+    return render(request,'store/book_form.html',{'book_form':form,
+                                                  'publishers':publisher_list}
+                  )
+def book_modelform(request):
+    form = forms.BookModelForm()
+    if request.method == 'POST':
+        print(request.POST)
+        form = forms.BookModelForm(request.POST)
+        if form.is_valid():
+            print('form is ok')
+            print(form)
+            form.save()
+    return render(request,'store/book_modelform.html',{'book_form':form})
+
+
+
 
 def md5Encode(str):
     m = hashlib.md5(str.encode(encoding='utf-8'))

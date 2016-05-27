@@ -90,22 +90,36 @@ body {
         height: 50px;
         line-height: 50px;
     }
-    .menu{
-        float: left;width: 30%;height: 500px;
-    }
-    .menu_body{
-        color: #9aa4af;
-        margin-left: 10px;
-    }
-    .copyright{
-        width:200px;height:50px;bottom:0;position:absolute;color: white;font-size: 15px;text-align: center;
-    }
-    .logo{
-        width: 80px;
-        height: 80px;
-        margin: 20px 0 20px 40px;
-    }
-    .nav-top{
-        height: 120px;
-        background-color: #9aa4af;
-    }
+.menu{
+    float: left;width: 30%;height: 500px;
+}
+.menu_body{
+    color: #9aa4af;
+    margin-left: 10px;
+}
+.copyright{
+    width:200px;height:50px;bottom:0;position:absolute;color: white;font-size: 15px;text-align: center;
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    margin: 20px 0 20px 40px;
+}
+.nav-top{
+    height: 120px;
+    background-color: #9aa4af;
+}
+lable {
+    display: block;
+    padding: 4px 10px 0 0;
+    float: left;
+    width: 160px;
+    word-wrap: break-word;
+    line-height: 1;
+}
+after{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 26px;
+}

@@ -7,7 +7,7 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/mysite/settings.py</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql:///store</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db.crm</jdbc-url>
       <explain-plan-config>
         <provider>com.intellij.database.plan.ExplainPlanProvider.NullExplainPlanProvider</provider>
       </explain-plan-config>
