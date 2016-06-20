@@ -2,10 +2,10 @@
 {% load custom %}
 {% block page-container %}
     <div class="wrap-left">
-        {% for article in article_list %}
+        {% for article in article_list reversed %}
             <div class="article-box row">
                 <div class="article-head-img col-md-4">
-                    <img src="/static/{{ article.head_img|truncate_url }}" >
+                    <img src="/{{ article.head_img|truncate_url }}" >
                 </div>
                 <div class="article-brief col-md-8">
                     <a class="article-title" href="{% url 'article_detail' article.id %}">{{ article.title }}</a>
@@ -31,7 +31,7 @@
         {% endfor %}
     </div>
     <div class="wrap-right">
-    rithg
+    公告
     </div>
     <div class="clear-both"></div>
 

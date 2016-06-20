@@ -16,11 +16,14 @@
             </span>
         </div>
         <div class="article-content">
-            <img class="article-detail-head-img"  src="/static/{{ article_obj.head_img|truncate_url }}">
-            {{ article_obj.content }}
+            <img class="article-detail-head-img"  src="{{ article_obj.head_img }}">
+            {{ article_obj.content |safe}}
         </div>
 
         <div class="comment-box">
+        <hr/>
+        <a>发表评论</a>
+
             {% if request.user.is_authenticated %}
                  <textarea class="form-control" rows="3"></textarea>
                  <button type="button" style="margin-top: 10px" class="btn btn-success pull-right">评论</button>
@@ -59,6 +62,7 @@
         return $("input[name='csrfmiddlewaretoken']").val();
     }
     $(document).ready(function(){
+        GetComments();
         $(".comment-box button").click(function(){
             var comment_text = $(".comment-box textarea").val();
             if (comment_text.trim().length <5){
@@ -77,7 +81,7 @@
                         function(callback){
                             console.log(callback);
                             if (callback == 'post-comment-success'){
-                                alert("post-comment-success");
+                                GetComments();
                             }
                 })//end post
             }
