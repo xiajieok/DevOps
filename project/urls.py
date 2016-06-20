@@ -1,4 +1,4 @@
-"""dev URL Configuration
+"""project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from bbs import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^crm/',include('crm_new.urls')),
+    url(r'^bbs/', include('bbs.urls')),
+    url(r'^chat/', include('webchat.urls')),
+    url(r'^login/', views.acc_login,name='login'),
+    url(r'^logout/', views.acc_logout,name='logout'),
 ]
