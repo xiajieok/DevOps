@@ -86,14 +86,14 @@ body{
 
 .chat-container{
     width:100%;
-    border: 1px solid black;
+    border: 1px solid rgb(211,222,223);
     height: 100%;
 }
 
 .left-contact-panel{
     width: 200px;
     height: 605px;
-    border: 1px solid black;
+    border: 1px solid rgb(211,222,223);
     float: left;
 
 }
@@ -103,7 +103,7 @@ body{
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
     z-index: 2;
     color: black;
-    background-color: rgb(220,220,220);
+    background-color: rgb(235,237,243);
     border-color: black;
 }
 
@@ -111,26 +111,29 @@ body{
 .right-chat-panel{
     width: 726px;
     height: 100%;
-    border: 2px solid greenyellow;
+    border: 1px solid rgb(211,222,223);
     float: right;
 }
-
+ul.nav.nav-tabs {
+    background-color: rgb(244,244,244);
+}
 .chat-box-title{
     height: 40px;
-    border: 1px solid darkslategray;
+    border: 1px solid rgb(211,222,223);
+    background-color: rgb(244,244,244);
 }
 .chat-box-window{
     height: 300px;
-    border: 1px solid black;
+    border: 1px solid rgb(211,222,223);
     overflow: auto;/*给div 做内容多了就自动加滚动条*/
 }
 .chat-box-emoj{
     height: 30px;
-    border: 1px solid brown;
+    border: 1px solid rgb(211,222,223);
 }
 .chat-box-msg-box {
     height: 230px;
-    border: 1px solid deeppink;
+    border: 1px solid rgb(211,222,223);
 }
 .chat-box-msg-box textarea{
     height: 100%;
