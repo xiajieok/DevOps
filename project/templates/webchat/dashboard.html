@@ -57,9 +57,8 @@
 
 
         </div>
-        <div class="right-chat-panel">
+        <div class="middle-chat-panel">
             <div class="chat-box-title" contact-type="" contact-id="">
-{#                title#}
             </div>
             <div class="chat-box-window">
                 window
@@ -76,6 +75,22 @@
             <div class="chat-box-msg-box">
                 <textarea id="msg"></textarea>
                 {#            <button class="btn btn-success">发送消息</button>#}
+            </div>
+        </div>
+        <div class="right-chat-panel">
+            <div class="chat-box-right-title ">
+                群成员
+            </div>
+            <div class="chat-box-right-members ">
+                <ul class="list-group">
+                    {% for members  in request.user.userprofile.group_members.select_related %}
+                        <li contact-type="group" contact-id="{{ group.id }}" onclick="OpenChatWindow(this)"
+                            class="list-group-item">
+                            <span class="badge hide">0</span>
+                            <span class="contact-name"> {{ group.name }} </span>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
         <div class="clear-both"></div>

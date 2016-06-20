@@ -108,10 +108,16 @@ body{
 }
 
 
-.right-chat-panel{
-    width: 726px;
+.middle-chat-panel{
+    width: 60%;
     height: 100%;
     border: 1px solid rgb(211,222,223);
+    float: left;
+}
+.right-chat-panel{
+    width: 170px;
+    /*height: 100%;*/
+    background-color:  rgb(211,222,223);
     float: right;
 }
 ul.nav.nav-tabs {
@@ -119,9 +125,19 @@ ul.nav.nav-tabs {
 }
 .chat-box-title{
     height: 40px;
-    border: 1px solid rgb(211,222,223);
+    width: auto;
+    /*border: 1px solid rgb(211,222,223);*/
     background-color: rgb(244,244,244);
 }
+.chat-box-right-title{
+    height: 40px;
+    background-color: rgb(244,244,244);
+    padding: 10px 60px ;
+}
+.chat-box-right-members {
+    background-color: #9e9e9e;
+}
+
 .chat-box-window{
     height: 300px;
     border: 1px solid rgb(211,222,223);
@@ -133,7 +149,7 @@ ul.nav.nav-tabs {
 }
 .chat-box-msg-box {
     height: 230px;
-    border: 1px solid rgb(211,222,223);
+    background-color:  rgb(211,222,223);
 }
 .chat-box-msg-box textarea{
     height: 100%;
