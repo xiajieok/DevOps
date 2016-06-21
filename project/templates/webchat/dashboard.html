@@ -82,17 +82,17 @@
                 群成员
             </div>
             <div class="chat-box-right-members ">
-{#                <ul class="list-group">#}
-{#                    {% for group  in request.user.userprofile.group_members.select_related %}#}
-{#                        {% for members  in request.user.userprofile.group_members.select_related %}#}
-{#                            <li contact-type="group" contact-id="{{ members.id }}" onclick="OpenChatWindow(this)"#}
-{#                                class="list-group-item">#}
-{#                                <span class="badge hide">0</span>#}
-{#                                <span class="contact-name"> {{ members.name }} </span>#}
-{#                            </li>#}
-{#                        {% endfor %}#}
-{#                    {% endfor %}#}
-{#                </ul>#}
+                <ul class="list-group">
+                    {% for members  in request.user.userprofile.group_members.select_related %}
+                        <li contact-type="group" contact-id="{{ members.id }}" onclick="OpenChatWindow(this)"
+                            class="list-group-item">
+                            <span class="contact-name"> {{ members.name }} </span>
+                            {% for members  in request.user.userprofile.group_members.select_all %}
+                                <span class="contact-name"> {{ members.name }} </span>
+                            {% endfor %}
+                        </li>
+                    {% endfor %}
+                </ul>
 
             </div>
         </div>
@@ -156,7 +156,6 @@
             //end定时取沙
 
             GetNewMsgs();//开始去取消息
-
 
 
             $("#navbar a[href='{{ request.path }}']").parent().addClass("active");
