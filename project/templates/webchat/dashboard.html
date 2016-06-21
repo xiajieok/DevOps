@@ -10,10 +10,21 @@
 
 
         <div class="left-contact-panel">
+            <div class="row head" >
+                <div class="col-lg-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜索好友">
+                        <span class="input-group-btn">
+                            <button class="btn " type="button"><span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div>
 
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
+                <ul class="nav nav-tabs" role="tablist" >
                     <li role="presentation" class="active">
                         <a href="#contact-tab" role="tab" data-toggle="tab">好友</a>
                     </li>
@@ -26,7 +37,7 @@
                 </ul>
 
                 <!-- Tab panes -->
-                <div class="tab-content">
+                <div class="tab-content" >
                     <div role="tabpanel" class="tab-pane active" id="contact-tab">
                         <ul class="list-group">
                             {% for friend in request.user.userprofile.friends.select_related %}
@@ -79,21 +90,21 @@
         </div>
         <div class="right-chat-panel">
             <div class="chat-box-right-title ">
-                群成员
+                {{ request.user.userprofile.name }}
             </div>
             <div class="chat-box-right-members ">
                 <ul class="list-group">
-                    {% for members  in request.user.userprofile.group_members.select_related %}
+                    {% for members  in request.user.userprofile.group_members_webgroup_id.select_related %}
                         <li contact-type="group" contact-id="{{ members.id }}" onclick="OpenChatWindow(this)"
                             class="list-group-item">
                             <span class="contact-name"> {{ members.name }} </span>
-                            {% for members  in request.user.userprofile.group_members.select_all %}
-                                <span class="contact-name"> {{ members.name }} </span>
-                            {% endfor %}
+{#                            {% for members  in request.user.userprofile.group_members.select_all %}#}
+{#                                <span class="contact-name"> {{ members.name }} </span>#}
+{#                            {% endfor %}#}
                         </li>
                     {% endfor %}
                 </ul>
-
+                <div>{{ request.user.userprofile.group_members.set.all }}</div>
             </div>
         </div>
         <div class="clear-both"></div>

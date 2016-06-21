@@ -93,7 +93,7 @@ body{
 .left-contact-panel{
     width: 200px;
     height: 605px;
-    border: 1px solid rgb(211,222,223);
+    border: 1px none rgb(211,222,223);
     float: left;
 
 }
@@ -111,7 +111,7 @@ body{
 .middle-chat-panel{
     width: 60%;
     height: 100%;
-    border: 1px solid rgb(211,222,223);
+    border: 1px none rgb(211,222,223);
     float: left;
 }
 .right-chat-panel{
