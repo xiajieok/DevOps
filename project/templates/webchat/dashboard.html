@@ -104,7 +104,7 @@
                         </li>
                     {% endfor %}
                 </ul>
-                <div>{{ request.user.userprofile.group_members.set.all }}</div>
+                <div>{{ request.user.userprofile.group_members.select_related }}</div>
             </div>
         </div>
         <div class="clear-both"></div>

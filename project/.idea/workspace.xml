@@ -82,16 +82,18 @@
       <file leaf-file-name="dashboard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/webchat/dashboard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8530806">
-              <caret line="106" column="70" selection-start-line="106" selection-start-column="70" selection-end-line="106" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.94840294">
+              <caret line="110" column="10" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="10" />
               <folding>
                 <element signature="e#96#271#0#HTML" expanded="false" />
-                <element signature="e#282#2971#0#HTML" expanded="false" />
-                <element signature="e#3198#3518#0#HTML" expanded="false" />
-                <element signature="e#6039#7302#0#HTML" expanded="false" />
-                <element signature="e#7355#8061#0#HTML" expanded="false" />
-                <element signature="e#8093#8782#0#HTML" expanded="false" />
-                <element signature="e#8832#9809#0#HTML" expanded="false" />
+                <element signature="e#3024#3101#0#HTML" expanded="false" />
+                <element signature="e#3114#3185#0#HTML" expanded="false" />
+                <element signature="e#3242#3344#0#HTML" expanded="false" />
+                <element signature="e#3361#3499#0#HTML" expanded="false" />
+                <element signature="e#6046#7309#0#HTML" expanded="false" />
+                <element signature="e#7362#8068#0#HTML" expanded="false" />
+                <element signature="e#8100#8789#0#HTML" expanded="false" />
+                <element signature="e#8839#9816#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -672,7 +674,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288364" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3270073" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15430017" sideWeight="0.50772625" order="2" side_tool="true" content_ui="tabs" />
@@ -719,7 +721,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1098,16 +1100,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/webchat/dashboard.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8530806">
-          <caret line="106" column="70" selection-start-line="106" selection-start-column="70" selection-end-line="106" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.94840294">
+          <caret line="110" column="10" selection-start-line="110" selection-start-column="10" selection-end-line="110" selection-end-column="10" />
           <folding>
             <element signature="e#96#271#0#HTML" expanded="false" />
-            <element signature="e#282#2971#0#HTML" expanded="false" />
-            <element signature="e#3198#3518#0#HTML" expanded="false" />
-            <element signature="e#6039#7302#0#HTML" expanded="false" />
-            <element signature="e#7355#8061#0#HTML" expanded="false" />
-            <element signature="e#8093#8782#0#HTML" expanded="false" />
-            <element signature="e#8832#9809#0#HTML" expanded="false" />
+            <element signature="e#3024#3101#0#HTML" expanded="false" />
+            <element signature="e#3114#3185#0#HTML" expanded="false" />
+            <element signature="e#3242#3344#0#HTML" expanded="false" />
+            <element signature="e#3361#3499#0#HTML" expanded="false" />
+            <element signature="e#6046#7309#0#HTML" expanded="false" />
+            <element signature="e#7362#8068#0#HTML" expanded="false" />
+            <element signature="e#8100#8789#0#HTML" expanded="false" />
+            <element signature="e#8839#9816#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
