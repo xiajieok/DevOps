@@ -94,17 +94,13 @@
             </div>
             <div class="chat-box-right-members ">
                 <ul class="list-group">
-                    {% for members  in request.user.userprofile.group_members_webgroup_id.select_related %}
-                        <li contact-type="group" contact-id="{{ members.id }}" onclick="OpenChatWindow(this)"
-                            class="list-group-item">
+                    {% for members  in request.user.userprofile.group_members.select_related %}
+                        <li contact-type="group" contact-id="{{ members.id }}" class="list-group-item">
                             <span class="contact-name"> {{ members.name }} </span>
-{#                            {% for members  in request.user.userprofile.group_members.select_all %}#}
-{#                                <span class="contact-name"> {{ members.name }} </span>#}
-{#                            {% endfor %}#}
+                            <span class="contact-name"> {{ members.id }} </span>
                         </li>
                     {% endfor %}
                 </ul>
-                <div>{{ request.user.userprofile.group_members.select_related }}</div>
             </div>
         </div>
         <div class="clear-both"></div>
@@ -167,7 +163,7 @@
             //end定时取沙
 
             GetNewMsgs();//开始去取消息
-
+            GetGroupMembers();
 
             $("#navbar a[href='{{ request.path }}']").parent().addClass("active");
 
@@ -357,6 +353,10 @@
 
                 }
             }
+        }
+        function GetGroupMembers(){
+            var g_id = $(".list-group-item.active").attr("contact-id");
+            console.log(g_id)
         }
     </script>
 
