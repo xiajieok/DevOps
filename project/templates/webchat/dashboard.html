@@ -10,7 +10,7 @@
 
 
         <div class="left-contact-panel">
-            <div class="row head" >
+            <div class="row head">
                 <div class="col-lg-12">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="搜索好友">
@@ -24,7 +24,7 @@
             <div>
 
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist" >
+                <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active">
                         <a href="#contact-tab" role="tab" data-toggle="tab">好友</a>
                     </li>
@@ -37,7 +37,7 @@
                 </ul>
 
                 <!-- Tab panes -->
-                <div class="tab-content" >
+                <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="contact-tab">
                         <ul class="list-group">
                             {% for friend in request.user.userprofile.friends.select_related %}
@@ -85,7 +85,6 @@
             </div>
             <div class="chat-box-msg-box">
                 <textarea id="msg"></textarea>
-                {#            <button class="btn btn-success">发送消息</button>#}
             </div>
         </div>
         <div class="right-chat-panel">
@@ -93,14 +92,26 @@
                 {{ request.user.userprofile.name }}
             </div>
             <div class="chat-box-right-members ">
-                <ul class="list-group">
-                    {% for members  in request.user.userprofile.group_members.select_related %}
-                        <li contact-type="group" contact-id="{{ members.id }}" class="list-group-item">
-                            <span class="contact-name"> {{ members.name }} </span>
-                            <span class="contact-name"> {{ members.id }} </span>
-                        </li>
-                    {% endfor %}
-                </ul>
+                {#                <ul class="list-group">#}
+                {#                    {% for members  in request.user.userprofile.group_members.select_related %}#}
+                {#                        <li contact-type="group" contact-id="{{ members.id }}" class="list-group-item">#}
+                {#                            <span class="contact-name"> {{ members.name }} </span>#}
+                {#                            <span class="contact-name"> {{ members.id }} </span>#}
+                {#                        </li>#}
+                {#                    {% endfor %}#}
+                {#                </ul>#}
+                <div>
+                    <div>
+                        <span>成员列表</span>
+                    </div>
+                    <div class="group_members">
+                        <ul class="list-group">
+                            {% for members  in request.user.userprofile.group_members.select_related %}
+
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="clear-both"></div>
@@ -163,7 +174,6 @@
             //end定时取沙
 
             GetNewMsgs();//开始去取消息
-            GetGroupMembers();
 
             $("#navbar a[href='{{ request.path }}']").parent().addClass("active");
 
@@ -274,12 +284,16 @@
 
         }
         function OpenChatWindow(ele) {
-            console.log($(ele));
+            //console.log($(ele));
             $(ele).addClass("active");
             $(ele).siblings().removeClass("active");
             var contact_id = $(ele).attr("contact-id");
             var contact_name = $(ele).find(".contact-name").text();
             var contact_type = $(ele).attr("contact-type");
+
+//            console.log(contact_name);
+  //          $(".chat-box-right-members div:last").html(contact_name);
+
 
             //在切换之前把当前的聊天记录归档
             var current_session_id = $(".chat-box-title").attr("contact-id");
@@ -354,10 +368,7 @@
                 }
             }
         }
-        function GetGroupMembers(){
-            var g_id = $(".list-group-item.active").attr("contact-id");
-            console.log(g_id)
-        }
+
     </script>
 
 
