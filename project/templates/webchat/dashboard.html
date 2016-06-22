@@ -92,24 +92,17 @@
                 {{ request.user.userprofile.name }}
             </div>
             <div class="chat-box-right-members ">
-                {#                <ul class="list-group">#}
-                {#                    {% for members  in request.user.userprofile.group_members.select_related %}#}
-                {#                        <li contact-type="group" contact-id="{{ members.id }}" class="list-group-item">#}
-                {#                            <span class="contact-name"> {{ members.name }} </span>#}
-                {#                            <span class="contact-name"> {{ members.id }} </span>#}
-                {#                        </li>#}
-                {#                    {% endfor %}#}
-                {#                </ul>#}
                 <div>
                     <div>
                         <span>成员列表</span>
                     </div>
                     <div class="group_members">
                         <ul class="list-group">
-                            {% for members  in WebGroup.objects.select_related.get(id=1) %}
-                                <li contact-type="group" contact-id="{{ members.id }}" class="list-group-item">
-                                    <span class="contact-name"> {{ members.name }} </span>
-                                    <span class="contact-name"> {{ members.id }} </span>
+                            {% for group  in request.user.userprofile.group_members.select_related %}
+                                <li contact-type="group" contact-id="{{ group.id }}" onclick="OpenChatWindow(this)"
+                                    class="list-group-item">
+                                    <span class="contact-name"> {{ group.name }} </span>
+                                    <span class="contact-name"> {{ group.id }} </span>
                                 </li>
                             {% endfor %}
                         </ul>
