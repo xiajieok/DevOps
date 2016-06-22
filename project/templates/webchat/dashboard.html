@@ -90,7 +90,7 @@
         <div class="right-chat-panel">
             <div class="chat-box-right-title ">
                 <span>
-                    <img class="user-image" src="/static/{{ request.user.userprofile.head_img }}">
+                    <img class="titile-user-image" src="/static/{{ request.user.userprofile.head_img }}">
                 </span>
             </div>
             <div class="chat-box-right-members ">
@@ -258,9 +258,8 @@
 
             if (msg_type == 'text') {
                 var new_msg_ele = "<div class='msg-item'>" +
-{#                        "<span>" + "{{ request.user.userprofile.name }}" + "</span>" +#}
 {#                        "<span>" + new Date().toLocaleTimeString() + "</span>" +#}
-                        "<div>" + "<img class='user-image'src='/static/{{ request.user.userprofile.head_img }}' + " + "</div>" +
+                        "<div>" + "<img class='user-image 'src='/static/{{ request.user.userprofile.head_img }}' >" + "</div>" +
                         "<div class='msg-text'>" + msg_text + "</div>"
             } else if (msg_type.startsWith('image')) {
                 var new_msg_ele = "<div class='msg-item'>" +
@@ -345,9 +344,10 @@
                 }
                 //{ msg: " d", from: "1", type: "single", to: "2", timestamp: 1466218925.1900246 }
                 var msg_item_ele = "<div class='msg-item'>" +
-                        "<span>" + callback[i]['from_name'] + "</span>" +
+                        {#                        "<span>" + callback[i]['from_name'] + "</span>" +#}
                         "<span>" + callback[i].timestamp + "</span>" +
-                        "<div>" + "<img class='user-image' src=" + callback[i]['head_img'] + "</div>" +
+                        "<span>" + "<img class='user-image' src=/static/" + callback[i]['head_img'] + "/>" + "</span>" +
+
                         "<div class='msg-text'>" + callback[i].msg + "</div>" +
                         "</div>";
                 if (msg_from_contact_id == current_session_id && current_session_type == callback[i].type) {

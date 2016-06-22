@@ -25,7 +25,8 @@ def send_msg(request):
     msg_data = request.POST.get('data')
     if msg_data:
         msg_data = json.loads(msg_data)
-        msg_data['timestamp'] = time.time()
+        # msg_data['timestamp'] = time.strftime('%Y/%m/%d %H:%M:%S')
+        msg_data['timestamp'] = time.strftime('%H:%M:%S')
         if msg_data['type'] == 'single':
             if not GLOBAL_MSG_QUEUES.get(int(msg_data['to']) ):
                 GLOBAL_MSG_QUEUES[int(msg_data["to"])] = queue.Queue()
