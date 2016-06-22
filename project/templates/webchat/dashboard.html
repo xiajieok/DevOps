@@ -90,19 +90,23 @@
         <div class="right-chat-panel">
             <div class="chat-box-right-title ">
                 {{ request.user.userprofile.name }}
+                <img  src="/static/{{ request.user.userprofile.head_img }}">
             </div>
             <div class="chat-box-right-members ">
                 <div>
                     <div>
                         <span>成员列表</span>
                     </div>
+                    <div>
+                        {{ request.user.userprofile.name }}
+                    </div>
                     <div class="group_members">
                         <ul class="list-group">
-                            {% for group  in request.user.userprofile.group_members.select_related %}
-                                <li contact-type="group" contact-id="{{ group.id }}" onclick="OpenChatWindow(this)"
+                            {% for item  in request.user.userprofile.group_admins.select_related %}
+                                <li contact-type="group" contact-id="{{ item.id }}" onclick="OpenChatWindow(this)"
                                     class="list-group-item">
-                                    <span class="contact-name"> {{ group.name }} </span>
-                                    <span class="contact-name"> {{ group.id }} </span>
+                                    <span class="contact-name"> {{ item.name }} </span>
+                                    <span class="contact-name"> {{ item.id }} </span>
                                 </li>
                             {% endfor %}
                         </ul>
