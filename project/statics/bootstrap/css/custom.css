@@ -134,7 +134,7 @@ ul.nav.nav-tabs {
     background-color: rgb(244,244,244);
     padding: 10px 60px ;
 }
-.user-title-image {
+.titile-user-image {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -174,3 +174,25 @@ ul.nav.nav-tabs {
 /*.msg-item{*/
     /*margin: 3px 525px 0 0 ;*/
 /*}*/
+.triangle-isosceles {
+	position:relative;
+	padding:15px;
+	margin:1em 0 3em;
+	color:#000;
+	background:#f3961c; /* default background for browsers without gradient support */
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+	background:-moz-linear-gradient(#f9d835, #f3961c);
+	background:-o-linear-gradient(#f9d835, #f3961c);
+	background:linear-gradient(#f9d835, #f3961c);
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+.triangle-isosceles.left {
+	margin-left:50px;
+	background:#f3961c;
+}
+.triangle-isosceles.right {
+	margin-right:50px;
+	background:#f3961c;
+}
