@@ -90,7 +90,7 @@
         <div class="right-chat-panel">
             <div class="chat-box-right-title ">
                 {{ request.user.userprofile.name }}
-                <img  src="/static/{{ request.user.userprofile.head_img }}">
+                <img  src="{{ request.user.userprofile.head_img }}">
             </div>
             <div class="chat-box-right-members ">
                 <div>

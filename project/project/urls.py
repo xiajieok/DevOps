@@ -16,9 +16,14 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from bbs import views
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # url(r'^admin/',include(admin.site.urls)),
     url(r'^bbs/', include('bbs.urls')),
     url(r'^chat/', include('webchat.urls')),
     url(r'^login/', views.acc_login,name='login'),
