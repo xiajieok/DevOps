@@ -69,11 +69,13 @@
 
         </div>
         <div class="middle-chat-panel">
+
             <div class="chat-box-title" contact-type="" contact-id="">
             </div>
             <div class="chat-box-window">
                 window
             </div>
+
             <div class="chat-box-emoj">
                 <div class="col-md-3">
                     <input id="file_upload" type="file">
@@ -83,9 +85,22 @@
 
                 </div>
             </div>
-            <div class="chat-box-msg-box">
-                <textarea id="msg"></textarea>
+            <div class="box">
+                <div id="show"></div>
+                <div class="comment">
+                    <div class="com_form chat-box-msg-box">
+
+                        <p>
+                            <span class="emotion">表情</span>
+                        </p>
+                        <textarea class="input " id="saytext" name="saytext"></textarea>
+                    </div>
+                </div>
+
             </div>
+            {#            <div class="chat-box-msg-box">#}
+            {#                <textarea id="msg"></textarea>#}
+            {#            </div>#}
         </div>
         <div class="right-chat-panel">
             <div class="chat-box-right-title ">
@@ -121,6 +136,8 @@
 {% endblock %}
 
 {% block bottom-js %}
+    <script src="/static/bootstrap/js/jquery-browser.js"></script>
+    <script src="/static/bootstrap/js/jquery.qqFace.js"></script>
     <script>
         //for csrf
         // using jQuery
@@ -259,8 +276,8 @@
             if (msg_type == 'text') {
                 var new_msg_ele = "<div class='msg-item'>" +
                         {#                        "<span>" + new Date().toLocaleTimeString() + "</span>" +#}
-                        "<div>" + "<img class='user-image 'src='/static/{{ request.user.userprofile.head_img }}' >" + "</div>" +
-                        "<p class='triangle-isosceles ritght msg-text'>" + msg_text + "</p>" +
+                        "<div>" + "<img class='user-image right 'src='/static/{{ request.user.userprofile.head_img }}' >" + "</div>" +
+                        "<p class='triangle-right right msg-text'>" + msg_text + "</p>" +
                         "</div>"
             } else if (msg_type.startsWith('image')) {
                 var new_msg_ele = "<div class='msg-item'>" +
@@ -347,9 +364,9 @@
                 var msg_item_ele = "<div class='msg-item'>" +
                         {#                        "<span>" + callback[i]['from_name'] + "</span>" +#}
                         {#                        "<span>" + callback[i].timestamp + "</span>" +#}
-                        "<span>" + "<img class='user-image' src=/static/" + callback[i]['head_img'] + "/>" + "</span>" +
+                        "<span>" + "<img class='user-image left' src=/static/" + callback[i]['head_img'] + "/>" + "</span>" +
 
-                        "<div class='msg-text triangle-isosceles right'>" + callback[i].msg + "</div>" +
+                        "<div class='msg-text triangle-right left'>" + callback[i].msg + "</div>" +
                         "</div>";
                 if (msg_from_contact_id == current_session_id && current_session_type == callback[i].type) {
                     //此消息的发送方当前正在跟我聊天
@@ -372,8 +389,29 @@
                 }
             }
         }
+        $(function () {
+            $('.emotion').qqFace({
+                id: 'facebox',
+                assign: 'saytext',
+                path: '/static/'	//表情存放的路径
+            });
+            $(".sub_btn").click(function () {
+                var str = $("#saytext").val();
+                $("#show").html(replace_em(str));
+            });
+        });
+        //查看结果
+        function replace_em(str) {
+            str = str.replace(/\</g, '&lt;');
+            str = str.replace(/\>/g, '&gt;');
+            str = str.replace(/\n/g, '<br/>');
+            str = str.replace(/\[em_([0-9]*)\]/g, '<img src="/static/$1.gif" border="0" />');
+            return str;
+        }
+
 
     </script>
 
 
 {% endblock %}
+
