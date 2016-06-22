@@ -200,6 +200,7 @@
                 var msg_item = {
                     'from': "{{ request.user.userprofile.id }}",
                     'from_name': "{{ request.user.userprofile.name }}",
+                    'head_img': "{{ request.user.userprofile.head_img }}",
                     'to': contact_id,
                     'type': contact_type,
                     'msg': msg_text
@@ -259,7 +260,7 @@
                 var new_msg_ele = "<div class='msg-item'>" +
 {#                        "<span>" + "{{ request.user.userprofile.name }}" + "</span>" +#}
 {#                        "<span>" + new Date().toLocaleTimeString() + "</span>" +#}
-                        "<div>" + "<img class='user-image'src='/static/{{ request.user.userprofile.head_img |safe}}' + " + "</div>" +
+                        "<div>" + "<img class='user-image'src='/static/{{ request.user.userprofile.head_img }}' + " + "</div>" +
                         "<div class='msg-text'>" + msg_text + "</div>"
             } else if (msg_type.startsWith('image')) {
                 var new_msg_ele = "<div class='msg-item'>" +
@@ -346,6 +347,7 @@
                 var msg_item_ele = "<div class='msg-item'>" +
                         "<span>" + callback[i]['from_name'] + "</span>" +
                         "<span>" + callback[i].timestamp + "</span>" +
+                        "<div>" + "<img class='user-image' src=" + callback[i]['head_img'] + "</div>" +
                         "<div class='msg-text'>" + callback[i].msg + "</div>" +
                         "</div>";
                 if (msg_from_contact_id == current_session_id && current_session_type == callback[i].type) {
