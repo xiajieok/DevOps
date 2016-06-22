@@ -61,7 +61,8 @@ class UserProfile(models.Model):
     name =models.CharField(max_length=32)
     signature= models.CharField(max_length=255,blank=True,null=True)
     # head_img = models.ImageField(height_field=150,width_field=150,blank=True,null=True)
-    head_img = models.ImageField(blank=True,null=True,upload_to='uploads')
+    # head_img = models.ImageField(blank=True,null=True,upload_to='uploads')
+    head_img = models.ImageField(blank=True,null=True)
     friends = models.ManyToManyField('self',related_name='my_friends',blank=True)
     def __str__(self):
         return self.name
