@@ -101,9 +101,6 @@
                 </div>
 
             </div>
-            {#            <div class="chat-box-msg-box">#}
-            {#                <textarea id="msg"></textarea>#}
-            {#            </div>#}
         </div>
         <div class="right-chat-panel">
             <div class="chat-box-right-title ">
@@ -123,6 +120,8 @@
                         <ul class="list-group">
 
                             {% for item  in request.user.userprofile.group_members.select_related %}
+                                <span>{{ item.id }} </span>
+{#                                <li contact-type="group" contact-id="2" onclick="OpenChatWindow(this)"#}
                                 <li contact-type="group" contact-id="{{ item.id }}" onclick="OpenChatWindow(this)"
                                     class="list-group-item">
                                     {% for i in  item.members.select_related %}
