@@ -118,7 +118,7 @@
                     </div>
                     <div class="group_members">
                         <ul class="list-group">
-                        <span contact-id="2" >{{  request.user.userprofile.group_members.select_related.id|id:"contact-id" }} </span>
+                        <span contact-id="2" >{{  request.user.userprofile.group_members.select_related.1}} </span>
 
                             {% for item  in request.user.userprofile.group_members.select_related %}
 
