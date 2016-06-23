@@ -44,6 +44,8 @@
                                 <li contact-type="single" contact-id="{{ friend.id }}" onclick="OpenChatWindow(this)"
                                     class="list-group-item">
                                     <span class="badge hide">0</span>
+
+                                    <img class="titile-user-image" src="/static/{{ friend.head_img }}">
                                     <span class="contact-name"> {{ friend.name }} </span>
                                 </li>
                             {% endfor %}
@@ -86,7 +88,7 @@
                 </div>
             </div>
             <div class="box">
-                <div id="show"></div>
+{#                <div id="show"></div>#}
                 <div class="comment">
                     <div class="com_form chat-box-msg-box">
 
@@ -277,9 +279,9 @@
             if (msg_type == 'text') {
                 var new_msg_ele = "<div class='msg-item'>" +
                         {#                        "<span>" + new Date().toLocaleTimeString() + "</span>" +#}
-                        "<div>" + "<img class='user-image right 'src='/static/{{ request.user.userprofile.head_img }}' >" + "</div>" +
+                        "<div>" + "<img class='user-image-right right 'src='/static/{{ request.user.userprofile.head_img }}' >" + "</div>" +
                         "<p class='triangle-right right msg-text'>" + msg_text + "</p>" +
-                        "<div id='show'></div>" +
+                        "<span id='show'></span>" +
                         "</div>"
             } else if (msg_type.startsWith('image')) {
                 var new_msg_ele = "<div class='msg-item'>" +
@@ -366,9 +368,10 @@
                 var msg_item_ele = "<div class='msg-item'>" +
                         {#                        "<span>" + callback[i]['from_name'] + "</span>" +#}
                         {#                        "<span>" + callback[i].timestamp + "</span>" +#}
-                        "<span>" + "<img class='user-image left' src=/static/" + callback[i]['head_img'] + "/>" + "</span>" +
+                        "<span>" + "<img class='user-image-left ' src=/static/" + callback[i]['head_img'] + "/>" + "</span>" +
 
                         "<div class='msg-text triangle-right left'>" + callback[i].msg + "</div>" +
+
                         "</div>";
                 if (msg_from_contact_id == current_session_id && current_session_type == callback[i].type) {
                     //此消息的发送方当前正在跟我聊天
