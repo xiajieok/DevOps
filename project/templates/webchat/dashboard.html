@@ -118,11 +118,13 @@
                     </div>
                     <div class="group_members">
                         <ul class="list-group">
+                        <span>{{ request.user.userprofile.group_members.all }} </span>
 
                             {% for item  in request.user.userprofile.group_members.select_related %}
-                                <span>{{ item.id }} </span>
+
+{#                                <span>{{ item.id }} </span>#}
 {#                                <li contact-type="group" contact-id="2" onclick="OpenChatWindow(this)"#}
-                                <li contact-type="group" contact-id="{{ item.id }}" onclick="OpenChatWindow(this)"
+                                <li contact-type="group" contact-id="{{ item.id }}"
                                     class="list-group-item">
                                     {% for i in  item.members.select_related %}
                                         <p>{{ i }}</p>
