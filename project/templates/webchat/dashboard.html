@@ -93,7 +93,8 @@
                         <p>
                             <span class="emotion">表情</span>
                         </p>
-                        <textarea class="input " id="saytext" name="saytext"></textarea>
+                        <textarea class="input form-control " id="saytext" name="saytext"></textarea>
+                        <input type="button" class="sub_btn" value="提交">
                     </div>
                 </div>
 
@@ -278,6 +279,7 @@
                         {#                        "<span>" + new Date().toLocaleTimeString() + "</span>" +#}
                         "<div>" + "<img class='user-image right 'src='/static/{{ request.user.userprofile.head_img }}' >" + "</div>" +
                         "<p class='triangle-right right msg-text'>" + msg_text + "</p>" +
+                        "<div id='show'></div>" +
                         "</div>"
             } else if (msg_type.startsWith('image')) {
                 var new_msg_ele = "<div class='msg-item'>" +
@@ -397,7 +399,9 @@
             });
             $(".sub_btn").click(function () {
                 var str = $("#saytext").val();
+
                 $("#show").html(replace_em(str));
+                console.log(replace_em(str));
             });
         });
         //查看结果

@@ -155,7 +155,7 @@ ul.nav.nav-tabs {
 }
 
 .chat-box-window{
-    height: 300px;
+    height: 275px;
     border: 1px solid rgb(211,222,223);
     overflow: auto;/*给div 做内容多了就自动加滚动条*/
 }
