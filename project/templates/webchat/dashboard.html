@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="box">
-{#                <div id="show"></div>#}
+                {#                <div id="show"></div>#}
                 <div class="comment">
                     <div class="com_form chat-box-msg-box">
 
@@ -109,6 +109,7 @@
             <div class="chat-box-right-title ">
                 <span>
                     <img class="titile-user-image" src="/static/{{ request.user.userprofile.head_img }}">
+{#                    <a href="#"><i class="text-success"></i> Online</a>#}
                 </span>
             </div>
             <div class="chat-box-right-members ">
@@ -117,15 +118,16 @@
                         <span>成员列表</span>
                     </div>
                     <div>
-                        {{ request.user.userprofile.name }}
                     </div>
                     <div class="group_members">
                         <ul class="list-group">
-                            {% for item  in request.user.userprofile.group_admins.select_related %}
+
+                            {% for item  in request.user.userprofile.group_members.select_related %}
                                 <li contact-type="group" contact-id="{{ item.id }}" onclick="OpenChatWindow(this)"
                                     class="list-group-item">
-                                    <span class="contact-name"> {{ item.name }} </span>
-                                    <span class="contact-name"> {{ item.id }} </span>
+                                    {% for i in  item.members.select_related %}
+                                        <p>{{ i }}</p>
+                                    {% endfor %}
                                 </li>
                             {% endfor %}
                         </ul>
