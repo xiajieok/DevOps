@@ -55,7 +55,7 @@
                     <div role="tabpanel" class="tab-pane" id="group-tab">
                         <ul class="list-group">
                             {% for group  in request.user.userprofile.group_members.select_related %}
-                                <li contact-type="group" contact-id="{{ group.id }}" onclick="OpenChatWindow(this)"
+                                <li contact-type="group" contact-id="{{ group.id }}" onclick="OpenChatWindow(this);GroupMembers(this)"
                                     class="list-group-item">
                                     <span class="badge hide">0</span>
                                     <span class="contact-name"> {{ group.name }} </span>
@@ -118,12 +118,11 @@
                     </div>
                     <div class="group_members">
                         <ul class="list-group">
-                            {% with contact-id="2" %}
-                                <span>{{ request.user.userprofile.group_members.all}}{{contact-id }} </span>
+                                <span>{{ request.user.userprofile.group_members.all}} </span>
 
                                 {% for item  in request.user.userprofile.group_members.select_related %}
 
-{#                                     <span>{{ item.id }} </span>#}
+                                     <span>{{ item }} </span>
 {#                                    <li contact-type="group" contact-id="2" onclick="OpenChatWindow(this)"#}
                                     <li contact-type="group" contact-id="{{ item.id }}" class="list-group-item">
                                         {% for i in  item.members.select_related %}
@@ -131,7 +130,6 @@
                                         {% endfor %}
                                     </li>
                                 {% endfor %}
-                            {% endwith %}
                         </ul>
                     </div>
                 </div>
@@ -418,6 +416,9 @@
             {#            str = str.replace(/\n/g, '<br/>');#}
             str = str.replace(/\[em_([0-9]*)\]/g, '<img src="/static/$1.gif" border="0" />');
             return str;
+        }
+        function GroupMembers(){
+
         }
 
 
