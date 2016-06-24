@@ -55,7 +55,7 @@
                     <div role="tabpanel" class="tab-pane" id="group-tab">
                         <ul class="list-group">
                             {% for group  in request.user.userprofile.group_members.select_related %}
-                                <li contact-type="group" contact-id="{{ group.id }}" onclick="OpenChatWindow(this);GroupMembers(this)"
+                                <li contact-type="group" contact-id="{{ group.id }}" onclick="OpenChatWindow(this)"
                                     class="list-group-item">
                                     <span class="badge hide">0</span>
                                     <span class="contact-name"> {{ group.name }} </span>
@@ -82,7 +82,7 @@
                 <div class="col-md-3">
                     <input id="file_upload" type="file">
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <span class="glyphicon glyphicon-upload" onclick="FileUpload()"></span>
 
                 </div>
@@ -118,18 +118,18 @@
                     </div>
                     <div class="group_members">
                         <ul class="list-group">
-                                <span>{{ request.user.userprofile.group_members.all}} </span>
-
-                                {% for item  in request.user.userprofile.group_members.select_related %}
-
-                                     <span>{{ item }} </span>
+{#                                <span>{{ request.user.userprofile.group_members.all}} </span>#}
+{##}
+{#                                {% for item  in request.user.userprofile.group_members.select_related %}#}
+{##}
+{#                                     <span>{{ item }} </span>#}
 {#                                    <li contact-type="group" contact-id="2" onclick="OpenChatWindow(this)"#}
-                                    <li contact-type="group" contact-id="{{ item.id }}" class="list-group-item">
-                                        {% for i in  item.members.select_related %}
-                                            <p>{{ i }}</p>
-                                        {% endfor %}
-                                    </li>
-                                {% endfor %}
+{#                                    <li contact-type="group" contact-id="{{ item.id }}" class="list-group-item">#}
+{#                                        {% for i in  item.members.select_related %}#}
+{#                                            <p>{{ i }}</p>#}
+{#                                        {% endfor %}#}
+{#                                    </li>#}
+{#                                {% endfor %}#}
                         </ul>
                     </div>
                 </div>
@@ -417,9 +417,7 @@
             str = str.replace(/\[em_([0-9]*)\]/g, '<img src="/static/$1.gif" border="0" />');
             return str;
         }
-        function GroupMembers(){
 
-        }
 
 
     </script>
