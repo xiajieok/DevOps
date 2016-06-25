@@ -3,14 +3,21 @@
 # Author:Alex Li
 import sys
 
+
+import django
+django.setup()
+
+from Arya import models
 from Arya import action_list
+
 
 class ArgvManagement(object):
     '''
     接收用户指令并分配到相应模块
     '''
-    def __init__(self,argvs):
+    def __init__(self,argvs,modules):
         self.argvs = argvs
+        self.modules = modules
         self.argv_parse()
 
     def help_msg(self):
@@ -32,7 +39,8 @@ class ArgvManagement(object):
             module_instance  = action_list.actions.get(mod_name)
             #判断是否存在于字典
             if module_instance:#matched
-                module_instance(self.argvs)
+                print('12312312')
+                module_instance(self.argvs,modules)
 
         else:
             exit("invalid module name argument")
