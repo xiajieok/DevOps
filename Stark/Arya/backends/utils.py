@@ -15,9 +15,8 @@ class ArgvManagement(object):
     '''
     接收用户指令并分配到相应模块
     '''
-    def __init__(self,argvs,modules):
+    def __init__(self,argvs):
         self.argvs = argvs
-        self.modules = modules
         self.argv_parse()
 
     def help_msg(self):
@@ -40,7 +39,7 @@ class ArgvManagement(object):
             #判断是否存在于字典
             if module_instance:#matched
                 print('12312312')
-                module_instance(self.argvs,modules)
+                module_instance(self.argvs,models)
 
         else:
             exit("invalid module name argument")
