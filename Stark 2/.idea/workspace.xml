@@ -28,10 +28,10 @@
       <file leaf-file-name="nginx.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wolf/nginx.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2739726">
-              <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.5479452">
+              <caret line="24" column="15" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="15" />
               <folding>
-                <element signature="e#34#67#0" expanded="true" />
+                <element signature="e#14#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -874,10 +874,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Wolf/nginx.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2739726">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.5479452">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="15" />
           <folding>
-            <element signature="e#34#67#0" expanded="true" />
+            <element signature="e#14#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
