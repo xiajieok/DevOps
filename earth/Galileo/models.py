@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class Host(models.Model):
     hostname = models.CharField(max_length=50)
-    ip_addr = models.IPAddressField()
+    ip = models.CharField(max_length=50)
     osversion = models.CharField(max_length=50)
     memory = models.CharField(max_length=50)
     disk = models.CharField(max_length=50)
