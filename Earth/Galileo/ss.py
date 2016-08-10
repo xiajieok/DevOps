@@ -14,8 +14,8 @@ def get_HostnameInfo(file):
         for line in data:
             if line.startswith('HOSTNAME'):
                 hostname = line.split('=')[1]
-                break
-    return hostname
+
+                return hostname
 
 
 #####[Demi message]#####
