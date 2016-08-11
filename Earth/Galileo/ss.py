@@ -19,7 +19,7 @@ def get_CpuInfo():
     print(res_cpu_cores)
     print(res_cpu_cores[0])
     cpu_dict['Cpu_Cores'] = int(res_cpu_cores[0]) + 1
-    res_vendor_id = re_vendor_id.findall(cpudata)
+    res_vendor_id = re_vendor_id.findall(cpudata)yanli
     cpu_dict['Vendor_Id'] = res_vendor_id[-1]
     res_model_name = re_model_name.findall(cpudata)
     cpu_dict['Model_Name'] = res_model_name[-1]
