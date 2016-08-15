@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Galileo',
     'blog',
+    'Copernicus',
 ]
 
 MIDDLEWARE_CLASSES = [

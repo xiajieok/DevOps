@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from blog import views
+from Copernicus import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('Copernicus.urls')),
 #    url(r'^Galileo$','Galileo.views.index'),
 ]
