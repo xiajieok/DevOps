@@ -33,16 +33,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/bbs/">虎嗅</a>
+          <a class="navbar-brand" href="/blog/">虎嗅</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
            {% block top-menu %}
           <ul class="nav navbar-nav">
           {% for category in category_list %}
             {% if category.id == category_obj.id %}
-                <li class="active"><a href="/bbs/category/{{ category.id }}">{{ category.name }}</a></li>
+                <li class="active"><a href="/blog/category/{{ category.id }}">{{ category.name }}</a></li>
             {% else %}
-                <li class=""><a href="/bbs/category/{{ category.id }}">{{ category.name }}</a></li>
+                <li class=""><a href="/blog/category/{{ category.id }}">{{ category.name }}</a></li>
             {% endif %}
           {% endfor%}
           </ul>
