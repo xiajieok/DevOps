@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Django Blog</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/dashboard.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/custom.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="page-header">
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
+{% for post in posts %}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <h1><a href="">{{ post.title }}</a></h1>
+                        <p>published: {{ post.published_date }}</p>
+                        <p>{{ post.text|linebreaks }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</body>
+</html>

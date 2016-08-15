@@ -1,84 +1,42 @@
-
-.page-container{
-    /*border: 1px dashed darkcyan;*/
-    padding-left: 150px;
-    padding-right: 150px;
+.page-header {
+    background-color: #ff9400;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
 }
-
-.wrap-left{
-    width: 75%;
-    float: left;
-}
-
-.wrap-right{
-    width: 25%;
-    float: left;
-    /*background-color: blueviolet;*/
-}
-
-.clear-both{
-    clear: both;
-}
-.footer{
-    margin-top: 50px;
-    height: 200px;
-    /*background-color: black;*/
-}
-.article-head-img img{
-    width: 220px;
-    height: 125px;
-
-}
-
-.article-box{
-    padding-bottom: 10px;
-}
-.article-brief{
-    margin-left: -15px;
-}
-.article-title{
-    font-size: 20px;
-
-}
-a{
-    color: #333;
-}
-a:visited{text-decoration: none}
-a:hover{
-    color: #337ab7;
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
     text-decoration: none;
 }
-body{
-    color: #333;
-    font-family: Arial,"微软雅黑","Microsoft yahei","Hiragino Sans GB","冬青黑体简体中文 w3","Microsoft Yahei","Hiragino Sans GB","冬青黑体简体中文 w3",STXihei,"华文细黑",SimSun,"宋体",Heiti,"黑体",sans-serif;
+.content {
+    margin-left: 40px;
 }
-
-.article-brief-text{
-    margin-top: 10px;
-    color: #999;
+h1, h2, h3, h4 {
+    font-family: 'Lobster', cursive;
 }
-.article-title-bg{
-    font-size: 30px;
+.date {
+    float: right;
+    color: #828282;
 }
-.article-title-brief{
-    margin-top: 10px;
-    color:#999;
+.save {
+    float: right;
 }
-
-.article-detail-head-img{
-    margin-top: 25px;
-    margin-bottom: 20px;
+.post-form textarea, .post-form input {
     width: 100%;
 }
-.article-content{
-    line-height: 30px;
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
 }
-
-.comment-node{
-    border: 1px solid darkcyan;
-    padding: 5px;
+.post {
+    margin-bottom: 70px;
 }
-.root-comment{
-    border: 1px solid brown;
-    padding: 5px;
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+h1 a {
+    color: #FCA205;
+    font-family: 'Lobster';
 }
