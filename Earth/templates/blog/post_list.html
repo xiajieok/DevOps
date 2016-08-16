@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
+{% load custom %}
 {% block content %}
+
     {% for post in posts %}
         <div class="post">
             <h1><a href="{% url 'Copernicus.views.post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
@@ -8,19 +10,40 @@
             <p>{{ post.text|linebreaks }}</p>
         </div>
     {% endfor %}
-    {% if page %}
-        <div class="pagination">
-        <span class="step-links">
+{#    {% if page %}#}
+{#        <div class="pagination">#}
+{#        <span class="step-links">#}
+{#            {% if posts.has_previous %}#}
+{#                <a href="?page={{ posts.previous_page_number }}">previous</a>#}
+{#            {% endif %}#}
+{#            <span class="current">#}
+{#                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.#}
+{#            </span>#}
+{#            {% if posts.has_next %}#}
+{#                <a href="?page={{ posts.next_page_number }}">next</a>#}
+{#            {% endif %}#}
+{#        </span>#}
+{#        </div>#}
+{#    {% endif %}#}
+    {% block pagination %}
+        <ul class="pagination">
             {% if posts.has_previous %}
-                <a href="?page={{ posts.previous_page_number }}">previous</a>
+                <li class="">
+                    <a href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
             {% endif %}
-            <span class="current">
-                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
-            </span>
-            {% if posts.has_next %}
-                <a href="?page={{ posts.next_page_number }}">next</a>
+            {% for page_num in posts.paginator.page_range %}
+                {% guess_page posts.number page_num %}
+            {% endfor %}
+            {% if shcool_list.has_next %}
+                <li class="">
+                    <a href="?page={{ posts.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
             {% endif %}
-        </span>
-        </div>
-    {% endif %}
+        </ul>
+    {% endblock %}
 {% endblock content %}
